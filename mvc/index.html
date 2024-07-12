@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MVC Calculator</title>
+    <style>
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .calculator input {
+            grid-column: span 4;
+            padding: 10px;
+            font-size: 18px;
+            text-align: right;
+        }
+        .calculator button {
+            padding: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <button class="number" data-value="7">7</button>
+        <button class="number" data-value="8">8</button>
+        <button class="number" data-value="9">9</button>
+        <button class="operator" data-value="+">+</button>
+        <button class="number" data-value="4">4</button>
+        <button class="number" data-value="5">5</button>
+        <button class="number" data-value="6">6</button>
+        <button class="operator" data-value="-">-</button>
+        <button class="number" data-value="1">1</button>
+        <button class="number" data-value="2">2</button>
+        <button class="number" data-value="3">3</button>
+        <button class="operator" data-value="*">*</button>
+        <button class="number" data-value="0">0</button>
+        <button id="clear">C</button>
+        <button id="calculate">=</button>
+        <button class="operator" data-value="/">/</button>
+    </div>
+
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>

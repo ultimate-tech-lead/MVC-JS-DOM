@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="stilovi.css">
+    <script src="analitika.js"></script>
+
+    <script>
+        document.addEventListener('analitika', (event) => { 
+
+console.log('Listener 2',
+ event.detail.message, 
+ event.detail.product);
+//console.log('Analitika event fired!', event.detail.message, event.detail.product);
+});
+    </script>
+</head>
+<body>
+    <script src="dinamika1.js" ></script>
+
+
+    <script>
+        console.log('Hello World');
+    </script>
+    <div id="ovde-cemo-dodati-nesto">
+
+    </div>
+    <div>Text</div>
+    <div>Text</div>
+    <div>Text</div>
+    <div>Text</div>
+    <div class="fensi-dugme" data-test-id="glavnoDugme" id="glavnoDugme">Text371</div>
+    <div>Text</div>
+    <div>Text</div>
+    
+    <script>
+
+            
+                const divs = document.getElementsByTagName('div');
+                for (let i = 0; i < divs.length; i++) {
+                    const njegovText = divs[i].innerText;
+                    if (njegovText.includes('371')) {
+                        divs[i].style.color = 'red';
+                    }
+                }
+            
+                const dugme = document.getElementById('glavnoDugme');
+            
+                const container = document.getElementById('ovde-cemo-dodati-nesto');
+                // napravimo div
+                const divDinamika = document.createElement('div');
+                const divText = document.createTextNode('Dinamicki tekst geenrisan iz JS');
+                divDinamika.appendChild(divText);
+                
+                container.appendChild(divDinamika);
+    </script>
+    
+</body>
+</html>

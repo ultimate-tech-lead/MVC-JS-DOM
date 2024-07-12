@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        console.log('Hello World');
+    </script>
+    <div id="ovde-cemo-dodati-nesto">
+    </div>
+    <div>Text</div>
+    <div>Text</div>
+    <div>Text</div>
+    <div>Text</div>
+    <div class="fensi-dugme" data-test-id="glavnoDugme" id="glavnoDugme">Text371</div>
+    <div>Text</div>
+    <div>Text</div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+                const divs = document.getElementsByTagName('div');
+                for (let i = 0; i < divs.length; i++) {
+                    const njegovText = divs[i].innerText;
+                    if (njegovText.includes('371')) {
+                        divs[i].style.color = 'red';
+                    }
+                }
+            
+                const dugme = document.getElementById('glavnoDugme');
+            
+                const container = document.getElementById('ovde-cemo-dodati-nesto');
+                // napravimo div
+                const divDinamika = document.createElement('div');
+                const divText = document.createTextNode('Dinamicki tekst');
+                divDinamika.appendChild(divText);
+                
+                container.appendChild(divDinamika);
+                });
+                
+
+        window.addEventListener('load', function() {
+            // kada je ucitani svi fajlovi isto blbla
+        });
+    </script>
+    
+</body>
+</html>
