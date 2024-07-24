@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PushState Example</title>
+  <style>
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" id="home-link">Home</a>
+    <a href="#" id="about-link">About</a>
+  </nav>
+
+  <div id="home" class="page active">
+    <h1>Home Page</h1>
+    <p>Welcome to the home page!</p>
+  </div>
+
+  <div id="about" class="page">
+    <h1>About Page</h1>
+    <p>Welcome to the about page!</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const homeLink = document.getElementById('home-link');
+      const aboutLink = document.getElementById('about-link');
+      const homePage = document.getElementById('home');
+      const aboutPage = document.getElementById('about');
+
+      // Function to handle navigation
+      const navigate = (state) => {
+        if (state.page === 'home') {
+          homePage.classList.add('active');
+          aboutPage.classList.remove('active');
+        } else if (state.page === 'about') {
+          homePage.classList.remove('active');
+          aboutPage.classList.add('active');
+        }
+      };
+
+      // Click event listeners for links
+      homeLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.pushState({ page: 'home' }, 'Home', '/');
+        navigate({ page: 'home' });
+      });
+
+      aboutLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.pushState({ page: 'about' }, 'About', '/about');
+        navigate({ page: 'about' });
+      });
+
+      // Handle the popstate event
+      window.addEventListener('popstate', (e) => {
+        if (e.state) {
+          navigate(e.state);
+        } else {
+          navigate({ page: 'home' });
+        }
+      });
+
+      // Initial navigation based on current state
+      if (history.state) {
+        navigate(history.state);
+      } else {
+        navigate({ page: 'home' });
+      }
+    });
+  </script>
+</body>
+</html>

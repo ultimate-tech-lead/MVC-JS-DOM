@@ -1,0 +1,21 @@
+<body>
+    <script>
+        // Function to handle the hash change
+        function onHashChange() {
+            const newHash = window.location.hash;
+            console.log('Hash changed to:', newHash);
+
+            // Add your code here to handle the hash change
+            if (newHash === '#/ruta') {
+                alert('test')
+            }
+        }
+
+        // Add the event listener for hash change
+        window.addEventListener('hashchange', onHashChange);
+
+        // Optional: Trigger the handler if you want to handle the initial hash on page load
+        onHashChange();
+
+    </script>
+</body>>
