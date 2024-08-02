@@ -42,7 +42,7 @@ export class AboutService {
   }
 
   async register(): Promise<void> {
-    const url = 'https://7e02-188-246-61-44.ngrok-free.app/users/register';
+    const url = 'https://xxxx.ngrok-free.app/users/register';
     const payload = {
       username: 'ANGULAR16',
       password: 'ANGULAR16',
