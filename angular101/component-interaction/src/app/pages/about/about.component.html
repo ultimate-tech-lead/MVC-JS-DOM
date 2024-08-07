@@ -1,0 +1,19 @@
+<h1>Stranica o nama</h1>
+
+{{ state.title }}
+
+{{ state.vrednost }}
+
+<h3>
+  {{ brojZaState }}
+</h3>
+
+  <button (click)="registerUser()">Register User</button>
+
+  <div *ngIf="state$ | async as state">
+    <div>Title: {{ state.title }}</div>
+    <div>Vrednost: {{ state.vrednost }}</div>
+    <div>Odgovor od servera: {{ state.odgovorOdServera }}</div>
+  </div>
+
+<app-info-card> </app-info-card>
